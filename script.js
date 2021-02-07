@@ -2,6 +2,7 @@ var makeArr = $('#makeArr')
 
 
 function createArray(){
+
   var lang=$('select').val()
   var arrName=$('#arrName').val().trim()
   var listItems=$('#items').val()
@@ -10,7 +11,7 @@ function createArray(){
   var result
   var resultBox = $('#resultBox')
   var resultHere =$('#resultHere')
-  arrName.replaceAll(" ", "_")
+  arrName= arrName.replaceAll(" ", "")
   var randomize = $('#randomize').val()
   var dataType = $('#dataType:checked').val()
 

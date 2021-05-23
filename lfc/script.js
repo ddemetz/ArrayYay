@@ -35,9 +35,9 @@ for (var i = 0; i < months; i++) {
   total = amount + fee
   amount = total
   fees.push(fee)
-
 }
 
+console.log("total:" + total)
 
 function change(changeVal){
 
@@ -70,11 +70,6 @@ for (var val in fees) {
   change(fees[val])
 }
 
-change(total)
-
-console.log("nums" + nums)
-console.log("fees" + fees)
-
 
 resultBox.css("display", "block")
 
@@ -91,11 +86,17 @@ var sum = fees.reduce(function(a, b){
 
 results.html(visuals)
 
+
 total = sum + original
+
 
 total = Math.ceil(total * 100) / 100;
 
+change(total)
+console.log(nums)
+
 totalph.html(`Total:<span style="float:right;">$${nums[nums.length-1]}`)
+console.log(nums[nums.length-1])
 
 
 

@@ -3,6 +3,19 @@ var results = $('.results')
 var ia = $('.ia')
 var totalph = $('.totalph')
 var resultBox = $('#resultBox')
+var arrayYay = $('#arrayyay')
+var body = $("body")
+
+arrayYay.on("mouseover", function(){
+  body.css("background-color", "#1E555C")
+  body.css("transition", ".3s")
+})
+
+arrayYay.on("mouseout", function(){
+  body.css("background-color", "#E7A977")
+  body.css("transition", ".3s")
+})
+
 
 btn.on("click", function(){
 

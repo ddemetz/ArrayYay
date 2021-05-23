@@ -1,4 +1,18 @@
 var makeArr = $('#makeArr')
+var lfc = $('#lfc')
+var body = $('body')
+
+
+lfc.on("mouseover", function(){
+  body.css("background-color", "#E7A977")
+  body.css("transition", ".3s")
+})
+
+lfc.on("mouseout", function(){
+  body.css("background-color", "#1E555C")
+  body.css("transition", ".3s")
+})
+
 
 
 function createArray(){
@@ -15,7 +29,6 @@ function createArray(){
   var randomize = $('#randomize').val()
   var dataType = $('#dataType:checked').val()
 
-
   var array = listItems.replace(/,\s*$/, "").replaceAll(",,,",",").replaceAll(",,",",")
   array= array.split(',').map(item => item.trim())
   var count= array.length
@@ -25,25 +38,11 @@ function createArray(){
     array = array.replace(/,\s*$/, "").replaceAll(",,,",",").replaceAll(",,",",")
     array= array.split(',').map(item => item.trim())
     var count= array.length
-
 }
 
-console.log(count)
-
-//Sort
 if(az == 'on'){
   array = array.sort()
 }
-// if (randomize == 'on){
-//   var currentIndex = array.length, temporaryValue, randomIndex;
-//   while (0 !== currentIndex) {
-//     randomIndex = Math.floor(Math.random() * currentIndex);
-//     currentIndex -= 1;
-//     temporaryValue = array[currentIndex];
-//     array[currentIndex] = array[randomIndex];
-//     array[randomIndex] = temporaryValue;
-//   }
-// }
 
 var spacewords = []
 
@@ -51,11 +50,9 @@ for (var i = 0; i < array.length; i++) {
 
 if (array[i].includes(" ")){
     spacewords.push(array[i])
-}
-}
+}}
 
 words = spacewords.toString().replaceAll(" ", "<sub>^</sub>").replace(",", "<br>")
-
 
 if (dataType == 'string'){
   array = array.map(item => `"${item}"`)
@@ -68,21 +65,14 @@ else{
         array = array.map(item => `"${item}"`)
         break
       }
-      //as long as a not-number is not there
-      //if the array is not empty
+
   else if (isNaN(array[i]) == false) {
     dataType="int"
   }
       else{
         dataType=""
       break
-    }
-  }
-}
-
-
-
-
+    }}}
 
 if( br == 'on'){
   array = array.map(item => `<br>&nbsp;&nbsp;${item}`)
@@ -100,16 +90,12 @@ else{
   var nameGiven = "x"
 }
 
-// c java js python ruby
-
 if (lang == 'c'){
 result = `${dataType} ${nameGiven}[${count}] = {${array}${addBr}};`
-
 }
 
 else if (lang == 'java'){
 result = `${nameGiven} = new ${dataType}[${count}] = {${array}${addBr}}`
-
 }
 
 else if (lang == 'js'){
@@ -117,12 +103,8 @@ result = `var ${nameGiven} = [${array}${addBr}]`
 }
 
 else if (lang == 'python'){
-
 result = `${nameGiven} = [${array}${addBr}]`
-
 }
-
-
 
 if(spacewords.length>0 && $('#dataType:checked').val()!="string"){
   if(spacewords.length==1){
